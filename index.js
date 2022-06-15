@@ -65,7 +65,7 @@ const contactos = [
 
 window.alert("Añadir un nuevo contacto");
 
-const nuevoLengthPush = (contactos.push = {
+const nuevoLengthPush = (contactos.push({
   id: window.prompt("Ingrese la posición en la que se encontrará el contacto"),
 
   nombre: window.prompt("Ingrese sus nombres"),
@@ -77,29 +77,18 @@ const nuevoLengthPush = (contactos.push = {
   ubicaciones: window.prompt("Ingrese su lugar y dirección de residencia"),
 
   correo: window.prompt("Ingrese su dirección de correo electrónico"),
-});
+}));
 
-console.log(contactos), contactos.splice(3, 1);
+const eliminado = contactos.filter((contacto) => contacto.id !== 2);
 
-const eliminado = contactos.splice(2, 1);
-console.log("Eliminado: ", eliminado);
-
-const mercury = contactos.filter(function (elem) {
-  return elem.id === 4;
-});
-
-console.log(mercury);
-
-// No sé por qué no funciona con el id 4.
-
-const eliminados = contactos.splice(4, 1, {
-  id: 7,
+contactos.splice(2, 1, {
+  id: 3,
   nombreCompleto: "Aretha Louise Franklin",
   celular: "3004329031",
   correo: "ArethaFranklin.Respect@gmail.com",
 });
 
-console.log("Eliminado: ", eliminados);
+console.log(eliminado);
 
 contactos.sort((a, b) => {
   if (a.id < b.id) {
